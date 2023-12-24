@@ -57,7 +57,8 @@ class FollowersViewController: UIViewController {
         
         showLoadingView()
         Task{
-            let result:Result<[Follower],Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.followers(name: username, pageSize: 80, pageNo: page, authToken: authToken))
+            let decodedToken = getAuthToken(encodedToken: authToken)
+            let result:Result<[Follower],Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.followers(name: username, pageSize: 80, pageNo: page, authToken: decodedToken))
             
             dismissLoadingView()
             switch result{
@@ -111,6 +112,15 @@ extension FollowersViewController:UICollectionViewDelegate{
             getFollwers(username: username, page: page)
         }
      
+    }
+    
+    func getAuthToken(encodedToken:String)->String{
+        guard let data = Data(base64Encoded: encodedToken) else {return ""}
+        if let decodedToken = String(data: data, encoding: .utf8){
+            return decodedToken
+        }else{
+            return ""
+        }
     }
 }
 
