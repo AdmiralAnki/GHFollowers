@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class FollowersViewController: UIViewController {
 
@@ -17,6 +18,8 @@ class FollowersViewController: UIViewController {
     var hasMoreFollowers = true
     var username = ""
     var followers = [Follower]()
+    var filteredFollowers = [Follower]()
+    
     var collectionView:UICollectionView!
     var datasource:UICollectionViewDiffableDataSource<Section,Follower>!
     
@@ -24,6 +27,7 @@ class FollowersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         confgureViewController()
+        configureSearchController()
         configureCollectionView()
         configureDataSource()
         getFollwers(username: username, page: page)
@@ -46,7 +50,18 @@ class FollowersViewController: UIViewController {
         })
     }
     
-    func updateDataSet(){
+    func configureSearchController(){
+        let searchController = UISearchController()
+        searchController.searchBar.placeholder = "Search a user"
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsCancelButton = true
+        searchController.obscuresBackgroundDuringPresentation = true
+        
+        navigationItem.searchController = searchController
+    }
+    
+    func updateDataSet(on followers:[Follower]){
         var snapShot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapShot.appendSections([Section.main])
         snapShot.appendItems(followers)
@@ -57,7 +72,7 @@ class FollowersViewController: UIViewController {
         
         showLoadingView()
         Task{
-            let decodedToken = getAuthToken(encodedToken: authToken)
+            let decodedToken = getAuthToken(encryptedToken: authToken)
             let result:Result<[Follower],Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.followers(name: username, pageSize: 80, pageNo: page, authToken: decodedToken))
             
             dismissLoadingView()
@@ -75,7 +90,7 @@ class FollowersViewController: UIViewController {
                     return
                 }
                 
-                updateDataSet()
+                updateDataSet(on: followers)
             case .failure(let error):
                 presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             }
@@ -114,7 +129,18 @@ extension FollowersViewController:UICollectionViewDelegate{
      
     }
     
-    func getAuthToken(encodedToken:String)->String{
+    func getAuthToken(encryptedToken:String)->String{
+        
+        let data = Data(base64Encoded: "dGhpcyBpcyBteSBzZWNyZXQgd2l0aCBhIHNpemUgMzI=")
+        let key = SymmetricKey(data: data!)
+        let encryptedContent = Data(base64Encoded: encryptedToken)
+        
+        let sealedBox = try! ChaChaPoly.SealedBox(combined: encryptedContent!)
+        
+        let decryptedThemeSong = try! ChaChaPoly.open(sealedBox, using: key)
+
+        let encodedToken = decryptedThemeSong.base64EncodedString()
+        
         guard let data = Data(base64Encoded: encodedToken) else {return ""}
         if let decodedToken = String(data: data, encoding: .utf8){
             return decodedToken
@@ -124,3 +150,17 @@ extension FollowersViewController:UICollectionViewDelegate{
     }
 }
 
+
+extension FollowersViewController:UISearchResultsUpdating,UISearchBarDelegate{
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else  {return}
+        
+        filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
+        updateDataSet(on: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateDataSet(on: followers)
+    }
+}

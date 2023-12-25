@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class SearchViewController: UIViewController {
     
@@ -35,22 +36,8 @@ class SearchViewController: UIViewController {
         addConstraintToTextField()
         addConstraintToButton()
         
-//        Task{
-//            let result:Result<Users,Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.users(name: "sallen0400", authToken: authToken))
-//            
-//            switch result{
-//            case .success(let users):
-//                print("sucess: ",users.name)
-//            case .failure(let error):
-//                print("error")
-//            }
-//        }
-        
-        
-
-        
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
