@@ -19,7 +19,7 @@ class FollowersViewController: UIViewController {
     var username = ""
     var followers = [Follower]()
     var filteredFollowers = [Follower]()
-    
+    var isSearchActive = false
     var collectionView:UICollectionView!
     var datasource:UICollectionViewDiffableDataSource<Section,Follower>!
     
@@ -55,8 +55,8 @@ class FollowersViewController: UIViewController {
         searchController.searchBar.placeholder = "Search a user"
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
-        searchController.searchBar.showsCancelButton = true
-        searchController.obscuresBackgroundDuringPresentation = true
+//        searchController.searchBar.showsCancelButton = true
+        searchController.obscuresBackgroundDuringPresentation = false
         
         navigationItem.searchController = searchController
     }
@@ -82,9 +82,7 @@ class FollowersViewController: UIViewController {
                 followers.append(contentsOf: users)
                 
                 if followers.isEmpty {
-                    print("Thread is main: ",Thread.isMainThread)
-                    
-                    DispatchQueue.main.async {
+                     DispatchQueue.main.async {
                         self.showEmptyStateView(message: "This user doesn't have any followers, give them a follow 😀", on: self.view)
                     }
                     return
@@ -98,37 +96,13 @@ class FollowersViewController: UIViewController {
     }
         
     func configureCollectionView(){
-        
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in:view))
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
-        
     }
     
 
-}
-
-extension FollowersViewController:UICollectionViewDelegate{
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        guard hasMoreFollowers else {return}
-        
-        let contentOffset = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
-        print("ContentOffset: \(contentOffset),\n contentHeight: \(contentHeight),\n height:\(height)")
-        
-        if contentOffset > (contentHeight-height){
-            print("reached end load new data")
-            page += 1
-            getFollwers(username: username, page: page)
-        }
-     
-    }
-    
     func getAuthToken(encryptedToken:String)->String{
         
         let data = Data(base64Encoded: "dGhpcyBpcyBteSBzZWNyZXQgd2l0aCBhIHNpemUgMzI=")
@@ -150,17 +124,49 @@ extension FollowersViewController:UICollectionViewDelegate{
     }
 }
 
+extension FollowersViewController:UICollectionViewDelegate{
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        guard hasMoreFollowers else {return}
+        
+        let contentOffset = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if contentOffset > (contentHeight-height){
+            print("reached end load new data")
+            page += 1
+            getFollwers(username: username, page: page)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = isSearchActive ? filteredFollowers[indexPath.item] : followers[indexPath.item]
+                
+        let destinationViewController = UserInfoViewController()
+        destinationViewController.username = follower.login
+        let destination = UINavigationController(rootViewController: destinationViewController)
+        present(destination,animated: true)
+        
+    }
+    
+ 
+}
+
 
 extension FollowersViewController:UISearchResultsUpdating,UISearchBarDelegate{
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else  {return}
         
+        isSearchActive = true
         filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
         updateDataSet(on: filteredFollowers)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateDataSet(on: followers)
+        isSearchActive = false
     }
 }

@@ -30,8 +30,8 @@
             filePath = "GHFollowers/Screens/FollowersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "scrollViewDidEndDragging(_:willDecelerate:)"
             landmarkType = "7">
             <Locations>
@@ -64,54 +64,6 @@
                   startingLineNumber = "98"
                   endingLineNumber = "98"
                   offsetFromSymbolStart = "788">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7E772A63-3619-4C95-81EC-E55D01C1A01A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GHFollowers/Screens/FollowersViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "configureCollectionView()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7E772A63-3619-4C95-81EC-E55D01C1A01A - 5457335d4cce67fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHFollowers.FollowersViewController.scrollViewDidEndDragging(_: __C.UIScrollView, willDecelerate: Swift.Bool) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankith/Library/Mobile%20Documents/com~apple~CloudDocs/iOS%20Development/GHFollowers/GHFollowers/Screens/FollowersViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "7E772A63-3619-4C95-81EC-E55D01C1A01A - 5457335d4cce6746"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "GHFollowers.FollowersViewController.scrollViewDidEndDragging(_: __C.UIScrollView, willDecelerate: Swift.Bool) -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankith/Library/Mobile%20Documents/com~apple~CloudDocs/iOS%20Development/GHFollowers/GHFollowers/Screens/FollowersViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "112">
                </Location>
             </Locations>
          </BreakpointContent>
