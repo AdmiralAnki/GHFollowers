@@ -38,8 +38,8 @@ enum GitHub:API{
     
     var path: String{
         switch self{
-        case .users(let name, _):
-            return "/users/"+name
+        case .users(let userName, _):
+            return "/users/"+userName
         case .followers(let name, _,_,_):
             return "/users/\(name)/followers"
         }

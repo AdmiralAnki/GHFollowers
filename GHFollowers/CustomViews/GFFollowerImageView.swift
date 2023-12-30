@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FollowerImage: UIImageView {
+class GFFollowerImageView: UIImageView {
 
     let placeHolderImage = UIImage(named: "gh-placeholder")!
     let cache = NetworkManager.cache
@@ -65,7 +65,7 @@ class FollowerImage: UIImageView {
 
 
 #Preview{
-    let image = FollowerImage(frame: .zero)
+    let image = GFFollowerImageView(frame: .zero)
     
     NSLayoutConstraint.activate([
         image.widthAnchor.constraint(equalToConstant: 200),

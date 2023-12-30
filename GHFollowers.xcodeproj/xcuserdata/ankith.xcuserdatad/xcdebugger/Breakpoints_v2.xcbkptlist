@@ -30,8 +30,8 @@
             filePath = "GHFollowers/Screens/FollowersViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "scrollViewDidEndDragging(_:willDecelerate:)"
             landmarkType = "7">
             <Locations>
@@ -65,23 +65,118 @@
                   endingLineNumber = "98"
                   offsetFromSymbolStart = "788">
                </Location>
+               <Location
+                  uuid = "A76EDE4A-F249-44CE-82E2-6DBE6B2347FC - 1aa218fc1bcd9f78"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.FollowersViewController.scrollViewDidEndDragging(_: __C.UIScrollView, willDecelerate: Swift.Bool) -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/FollowersViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "100">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "99AB4B9B-55D0-4F98-8E67-59508819EA85"
+            uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GHFollowers/Extensions/UIViewController+Ext.swift"
+            filePath = "GHFollowers/Screens/UserInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "dismissLoadingView()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51 - 50ce437bf3ca5850"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GHFollowers.UserInfoViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51 - 50ce437bf3ca5850"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GHFollowers.UserInfoViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "668">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26C4F3AB-E5B5-40E5-8691-A0E3EC78DB37"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHFollowers/Screens/UserInfoHeaderViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26C4F3AB-E5B5-40E5-8691-A0E3EC78DB37 - 1e0c0fa2a363c88c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.UserInfoHeaderViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoHeaderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "26C4F3AB-E5B5-40E5-8691-A0E3EC78DB37 - 1e0c0fa2a363c88c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GHFollowers.UserInfoHeaderViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "GHFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoHeaderViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

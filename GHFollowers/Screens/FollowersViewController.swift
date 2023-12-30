@@ -72,7 +72,7 @@ class FollowersViewController: UIViewController {
         
         showLoadingView()
         Task{
-            let decodedToken = getAuthToken(encryptedToken: authToken)
+            let decodedToken = Helper.getAuthToken(encryptedToken: authToken)
             let result:Result<[Follower],Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.followers(name: username, pageSize: 80, pageNo: page, authToken: decodedToken))
             
             dismissLoadingView()
@@ -100,27 +100,6 @@ class FollowersViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
-    }
-    
-
-    func getAuthToken(encryptedToken:String)->String{
-        
-        let data = Data(base64Encoded: "dGhpcyBpcyBteSBzZWNyZXQgd2l0aCBhIHNpemUgMzI=")
-        let key = SymmetricKey(data: data!)
-        let encryptedContent = Data(base64Encoded: encryptedToken)
-        
-        let sealedBox = try! ChaChaPoly.SealedBox(combined: encryptedContent!)
-        
-        let decryptedThemeSong = try! ChaChaPoly.open(sealedBox, using: key)
-
-        let encodedToken = decryptedThemeSong.base64EncodedString()
-        
-        guard let data = Data(base64Encoded: encodedToken) else {return ""}
-        if let decodedToken = String(data: data, encoding: .utf8){
-            return decodedToken
-        }else{
-            return ""
-        }
     }
 }
 
