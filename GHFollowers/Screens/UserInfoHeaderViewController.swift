@@ -45,7 +45,7 @@ class UserInfoHeaderViewController: UIViewController {
     }
     
     func layoutUI(){
-        let padding:CGFloat = 20
+//        let padding:CGFloat = 20
         let textImagePadding:CGFloat = 12
 
         locationPin.image = UIImage(systemName: SFSymbols.loaction)
@@ -54,19 +54,19 @@ class UserInfoHeaderViewController: UIViewController {
         bio.numberOfLines = 3
         
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: 90),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
             
             username.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
             username.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
-            username.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            username.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             username.heightAnchor.constraint(equalToConstant: 38),
             
             name.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor,constant: 6),
             name.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor,constant: textImagePadding),
-            name.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding),
+            name.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             name.heightAnchor.constraint(equalToConstant: 20),
             
             locationPin.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
@@ -76,12 +76,12 @@ class UserInfoHeaderViewController: UIViewController {
             
             userLocation.bottomAnchor.constraint(equalTo:avatarImageView.bottomAnchor),
             userLocation.leadingAnchor.constraint(equalTo: locationPin.trailingAnchor,constant:textImagePadding),
-            userLocation.trailingAnchor.constraint(equalTo:view.trailingAnchor, constant: -padding),
+            userLocation.trailingAnchor.constraint(equalTo:view.trailingAnchor),
             userLocation.heightAnchor.constraint(equalToConstant: 20),
             
             bio.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
-            bio.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            bio.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            bio.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bio.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bio.heightAnchor.constraint(equalToConstant: 80)
 //            bio.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant: -padding)
         ])

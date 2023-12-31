@@ -86,54 +86,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GHFollowers/Screens/UserInfoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51 - 50ce437bf3ca5850"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GHFollowers.UserInfoViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "380">
-               </Location>
-               <Location
-                  uuid = "0F9785F7-EE4E-45D5-B9BC-151704815F51 - 50ce437bf3ca5850"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in GHFollowers.UserInfoViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "GHFollowers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ankith/Documents/GithubFollowers/GHFollowers/GHFollowers/Screens/UserInfoViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "668">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "26C4F3AB-E5B5-40E5-8691-A0E3EC78DB37"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

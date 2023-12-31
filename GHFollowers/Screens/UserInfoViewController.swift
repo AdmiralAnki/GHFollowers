@@ -11,18 +11,24 @@ class UserInfoViewController: UIViewController {
 
     var username = ""
     let headerView = UIView()
+    let itemViewOne = UIView()
+    let itemViewTwo = UIView()
+    
+    var itemArray:[UIView] = []
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-        
-        navigationItem.setRightBarButton(doneButton, animated: true)
+        configureViewController()
         layoutHeaderView()
+        getUser()
+    }
+    
+    fileprivate func getUser() {
         let decodedToken = Helper.getAuthToken(encryptedToken: authToken)
-        
+        showLoadingView()
         Task{
             
             let result:Result<Users,Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.users(name: username, authToken: decodedToken) )
@@ -30,26 +36,49 @@ class UserInfoViewController: UIViewController {
             switch result{
             case .success(let user):
                 DispatchQueue.main.async{
+                    self.dismissLoadingView()
                     self.addChildVC(childVC: UserInfoHeaderViewController(user: user), to: self.headerView)
                 }
             case .failure(let error):
                 presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
-
-        
     }
     
+    fileprivate func configureViewController() {
+        view.backgroundColor = .systemBackground
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
+        navigationItem.setRightBarButton(doneButton, animated: true)
+    }
     
     func layoutHeaderView(){
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-//        headerView.backgroundColor = .purple
+        itemArray = [headerView,itemViewOne,itemViewTwo]
+       
+        let padding:CGFloat = 20
+        let itemSpacing:CGFloat = 12
+        let itemHeight:CGFloat = 140
+       
+        for itemView in itemArray{
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+            ])
+        }
+        
+//        itemViewOne.backgroundColor = .systemPink
+//        itemViewTwo.backgroundColor = .purple
+                
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 220)
+            headerView.heightAnchor.constraint(equalToConstant: 220),
+            
+            itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: itemSpacing),
+            itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: itemSpacing),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight)
         ])
     }
 
@@ -66,6 +95,3 @@ class UserInfoViewController: UIViewController {
     }
 }
 
-#Preview{
-    UserInfoViewController()
-}
