@@ -13,6 +13,7 @@ class UserInfoViewController: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLabel = GFBodyLabel(textAlignment: .center)
     
     var itemArray:[UIView] = []
     
@@ -46,6 +47,8 @@ class UserInfoViewController: UIViewController {
                     self.addChildVC(childVC: followerVC, to: self.itemViewTwo)
                     
                     followerVC.layoutUI()
+                    
+                    self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
                 }
             case .failure(let error):
                 presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
@@ -60,7 +63,7 @@ class UserInfoViewController: UIViewController {
     }
     
     func layoutHeaderView(){
-        itemArray = [headerView,itemViewOne,itemViewTwo]
+        itemArray = [headerView,itemViewOne,itemViewTwo,dateLabel]
        
         let padding:CGFloat = 20
         let itemSpacing:CGFloat = 12
@@ -75,8 +78,6 @@ class UserInfoViewController: UIViewController {
             ])
         }
         
-//        itemViewOne.backgroundColor = .systemPink
-//        itemViewTwo.backgroundColor = .purple
                 
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -86,7 +87,10 @@ class UserInfoViewController: UIViewController {
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: itemSpacing),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 
