@@ -38,6 +38,14 @@ class UserInfoViewController: UIViewController {
                 DispatchQueue.main.async{
                     self.dismissLoadingView()
                     self.addChildVC(childVC: UserInfoHeaderViewController(user: user), to: self.headerView)
+                    let repoVC = GFRepoItemViewController(user: user)
+                    let followerVC = GFFollowerItemViewController(user: user)
+                    self.addChildVC(childVC: repoVC, to: self.itemViewOne)
+                    repoVC.layoutUI()
+                    
+                    self.addChildVC(childVC: followerVC, to: self.itemViewTwo)
+                    
+                    followerVC.layoutUI()
                 }
             case .failure(let error):
                 presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
@@ -86,6 +94,7 @@ class UserInfoViewController: UIViewController {
         addChild(viewController)
         containerView.addSubview(viewController.view)
         viewController.view.frame = containerView.bounds
+        print("Child view controller frame: ",containerView.bounds)
         viewController.didMove(toParent: self)
     }
     
