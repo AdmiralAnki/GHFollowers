@@ -1,5 +1,5 @@
 //
-//  String+Validation.swift
+//  String+Ext.swift
 //  GHFollowers
 //
 //  Created by Ankith K on 23/11/23.

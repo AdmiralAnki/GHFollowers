@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView:UIView!
 	
 extension UIViewController{
+    
+    func presentSafariViewController(url:URL){
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        
+        self.present(safariVC,animated: true)
+    }
     
     func presentAFAlertOnMainThread(title:String,message:String,buttonTitle:String){
         DispatchQueue.main.async{

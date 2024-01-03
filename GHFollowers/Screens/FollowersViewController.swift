@@ -125,6 +125,8 @@ extension FollowersViewController:UICollectionViewDelegate{
                 
         let destinationViewController = UserInfoViewController()
         destinationViewController.username = follower.login
+        destinationViewController.delegate = self
+        
         let destination = UINavigationController(rootViewController: destinationViewController)
         present(destination,animated: true)
         
@@ -147,5 +149,22 @@ extension FollowersViewController:UISearchResultsUpdating,UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateDataSet(on: followers)
         isSearchActive = false
+    }
+}
+
+extension FollowersViewController:FollowerViewControllerDelegate{
+    func didRequestFollowers(for username: String) {
+        // get followers for that user
+        self.username = username
+        self.title = username
+        
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        DispatchQueue.main.async{
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
+        getFollwers(username: username, page: page)
+        
     }
 }
