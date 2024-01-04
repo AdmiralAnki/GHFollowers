@@ -19,7 +19,7 @@ extension UIViewController{
         self.present(safariVC,animated: true)
     }
     
-    func presentAFAlertOnMainThread(title:String,message:String,buttonTitle:String){
+    func presentGFAlertOnMainThread(title:String,message:String,buttonTitle:String){
         DispatchQueue.main.async{
             let alert = GFAlertViewController(alertTitle: title, message: message, buttonTitle: buttonTitle)
             alert.modalPresentationStyle = .overCurrentContext

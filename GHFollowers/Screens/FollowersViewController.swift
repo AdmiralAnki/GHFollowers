@@ -40,6 +40,10 @@ class FollowersViewController: UIViewController {
     func confgureViewController(){
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.setRightBarButton(addButton, animated: true)
+        
     }
     
     func configureDataSource(){
@@ -90,7 +94,7 @@ class FollowersViewController: UIViewController {
                 
                 updateDataSet(on: followers)
             case .failure(let error):
-                presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+                presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
     }
@@ -100,6 +104,30 @@ class FollowersViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
+    }
+    
+    
+    @objc func addButtonTapped(){
+        Task{
+            let decodedToken = Helper.getAuthToken(encryptedToken: authToken)
+            let result:Result<Users,Error> = await NetworkManager.shared.makeNetworkRequest(endpoint: GitHub.users(name: username, authToken: decodedToken))
+            
+            switch result{
+            case .success(let user):
+                let follower = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                PersistenceManager.updateFavouitesWith(follower: follower, actionType: .add) { error in
+                    guard let error = error else{
+                        self.presentGFAlertOnMainThread(title: "Added to favourite", message: "You have successfully added this user to favourites 🎉", buttonTitle: "Yay!")
+                        return
+                    }
+                    
+                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                }
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                
+            }
+        }
     }
 }
 

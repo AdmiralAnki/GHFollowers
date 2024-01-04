@@ -41,7 +41,7 @@ class UserInfoViewController: UIViewController {
                     self.configureUIElements(with: user)
                 }
             case .failure(let error):
-                presentAFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+                presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
     }
@@ -118,7 +118,7 @@ extension UserInfoViewController: UserInfoVCDelegate{
     
     func didTapGithubProfile(for user: Users) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentAFAlertOnMainThread(title: "Invalid URL", message: "The url for this user is not valid", buttonTitle: "Ok")
+            presentGFAlertOnMainThread(title: "Invalid URL", message: "The url for this user is not valid", buttonTitle: "Ok")
             return
         }
         presentSafariViewController(url: url)
@@ -127,7 +127,7 @@ extension UserInfoViewController: UserInfoVCDelegate{
     func didTapGetFollowers(for user: Users) {
         guard user.followers != 0 else{
             
-            presentAFAlertOnMainThread(title: "Error", message: "User doesn't have any followers", buttonTitle: "Ok")
+            presentGFAlertOnMainThread(title: "Error", message: "User doesn't have any followers", buttonTitle: "Ok")
             return
         }
         

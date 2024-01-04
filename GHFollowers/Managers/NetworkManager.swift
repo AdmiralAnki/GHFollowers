@@ -63,9 +63,9 @@ class NetworkManager{
         
     }
     
-    func makeNetworkRequest<T:Codable>(endpoint:API,completed:@escaping (Result<[T],Error>)->()){
+    func makeNetworkRequest<T:Codable>(endpoint:API,completed:@escaping (Result<[T],GFError>)->()){
         guard let request = createURLRequest(endpoint: endpoint) else {
-            completed(.failure(NSError(domain: "Error Creating Request", code: 452)))
+            completed(.failure(.requestError))
             return
         }
         
@@ -78,20 +78,20 @@ class NetworkManager{
         urlSession.dataTask(with: request) { data, response, error in
             
             if let error = error{
-                completed(.failure(error))
+//                completed(.failure(error as! GFError))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   httpResponse.statusCode == 200 
             else{
-                completed(.failure(GHErrors.invalidStatusCode("Invalid Status code")))
+                completed(.failure(.invalidStatusCode))
                 return
             }
             
             
             guard let data = data else {
-                completed(.failure(GHErrors.dataNotReceived("Data not recieved")))
+                completed(.failure(.dataNotReceived))
                 return
             }
             
@@ -103,7 +103,7 @@ class NetworkManager{
                 completed(.success(followers))
                 return
             }catch{
-                completed(.failure(error))
+//                completed(.failure(error))
                 return
             }
             
@@ -115,8 +115,13 @@ class NetworkManager{
 
 
 
-enum GHErrors:Error{
-    case decodingError(String)
-    case dataNotReceived(String)
-    case invalidStatusCode(String)
+enum GFError:String, Error{
+    case requestError               = "Error creating Request"
+    case decodingError              = "Failed to decode data"
+    case dataNotReceived            = "Data not received"
+    case invalidStatusCode          = "Invalid status code"
+    case failedToRetreiveFavourites = "Couldn't retreive favorites!"
+    case unableToFavourite          = "Unable to favourite"
+    case userAlreadyFavourited      = "This user is already in your favourites!"
+    
 }
