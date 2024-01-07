@@ -13,7 +13,7 @@
 		B20E14C42B04A38100FCD58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E14C32B04A38100FCD58C /* Assets.xcassets */; };
 		B20E14C72B04A38100FCD58C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20E14C52B04A38100FCD58C /* LaunchScreen.storyboard */; };
 		B212EDE12B0F24E30082909E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDE02B0F24E30082909E /* String+Ext.swift */; };
-		B212EDE32B0F260F0082909E /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDE22B0F260F0082909E /* FollowersViewController.swift */; };
+		B212EDE32B0F260F0082909E /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDE22B0F260F0082909E /* FollowerListViewController.swift */; };
 		B212EDE92B0F2CF10082909E /* GFAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDE82B0F2CF00082909E /* GFAlertViewController.swift */; };
 		B212EDEB2B0F44110082909E /* GFAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDEA2B0F44110082909E /* GFAlertContainerView.swift */; };
 		B212EDED2B0F54A60082909E /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B212EDEC2B0F54A60082909E /* UIViewController+Ext.swift */; };
@@ -41,6 +41,7 @@
 		B28D87D82B11EDDE007DDE81 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D87D72B11EDDE007DDE81 /* FollowerCell.swift */; };
 		B28D87DA2B11EE49007DDE81 /* GFFollowerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D87D92B11EE49007DDE81 /* GFFollowerImageView.swift */; };
 		B2AF400F2B485C0800947C90 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF400E2B485C0800947C90 /* FavouriteCell.swift */; };
+		B2AF40112B485E8B00947C90 /* FavouriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF40102B485E8B00947C90 /* FavouriteListViewController.swift */; };
 		B2C888002B4715CB001ED64B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C887FF2B4715CB001ED64B /* PersistenceManager.swift */; };
 		B2DC2C762B4474D8003848FB /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DC2C752B4474D8003848FB /* Date+Ext.swift */; };
 		B2E316642B43232200C1CA52 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E316632B43232200C1CA52 /* GFItemInfoView.swift */; };
@@ -57,7 +58,7 @@
 		B20E14C62B04A38100FCD58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20E14C82B04A38100FCD58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B212EDE02B0F24E30082909E /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		B212EDE22B0F260F0082909E /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
+		B212EDE22B0F260F0082909E /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		B212EDE82B0F2CF00082909E /* GFAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertViewController.swift; sourceTree = "<group>"; };
 		B212EDEA2B0F44110082909E /* GFAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainerView.swift; sourceTree = "<group>"; };
 		B212EDEC2B0F54A60082909E /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		B28D87D72B11EDDE007DDE81 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		B28D87D92B11EE49007DDE81 /* GFFollowerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerImageView.swift; sourceTree = "<group>"; };
 		B2AF400E2B485C0800947C90 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		B2AF40102B485E8B00947C90 /* FavouriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListViewController.swift; sourceTree = "<group>"; };
 		B2C887FF2B4715CB001ED64B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		B2DC2C752B4474D8003848FB /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B2E316632B43232200C1CA52 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
@@ -179,9 +181,10 @@
 			children = (
 				B219367F2B43E6B900C455B3 /* UserInfo Child ViewControllers */,
 				B20E14BE2B04A37F00FCD58C /* SearchViewController.swift */,
-				B212EDE22B0F260F0082909E /* FollowersViewController.swift */,
+				B212EDE22B0F260F0082909E /* FollowerListViewController.swift */,
 				B212EDE82B0F2CF00082909E /* GFAlertViewController.swift */,
 				B22962F52B3C797500DBA619 /* UserInfoViewController.swift */,
+				B2AF40102B485E8B00947C90 /* FavouriteListViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -354,8 +357,9 @@
 				B212EDED2B0F54A60082909E /* UIViewController+Ext.swift in Sources */,
 				B20E14BB2B04A37F00FCD58C /* AppDelegate.swift in Sources */,
 				B219367E2B43E4C100C455B3 /* GFFollowerItemViewController.swift in Sources */,
+				B2AF40112B485E8B00947C90 /* FavouriteListViewController.swift in Sources */,
 				B23276072B40780E0066FBEE /* GFSecondaryTitleLabel.swift in Sources */,
-				B212EDE32B0F260F0082909E /* FollowersViewController.swift in Sources */,
+				B212EDE32B0F260F0082909E /* FollowerListViewController.swift in Sources */,
 				B2C888002B4715CB001ED64B /* PersistenceManager.swift in Sources */,
 				B232760B2B408B430066FBEE /* Constants.swift in Sources */,
 				B28D87D82B11EDDE007DDE81 /* FollowerCell.swift in Sources */,

@@ -47,7 +47,7 @@ enum PersistenceManager{
         }
     }
     
-    static private func retrieveFavouritesForKey(completed: @escaping (Result<[Follower],GFError>)->()){
+    static func retrieveFavouritesForKey(completed: @escaping (Result<[Follower],GFError>)->()){
         
         guard let favourites = defaults.object(forKey: Keys.favourites) as? Data else{
             completed(.success([]))

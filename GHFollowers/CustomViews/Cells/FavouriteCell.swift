@@ -30,6 +30,8 @@ class FavouriteCell: UITableViewCell {
           await self.avatarImageView.downloadImage(from: favourite.avatarUrl)
         }
     }
+    
+    
     private func configure(){
         addSubview(avatarImageView)
         addSubview(username)
@@ -46,8 +48,9 @@ class FavouriteCell: UITableViewCell {
             
             username.centerYAnchor.constraint(equalTo: centerYAnchor),
             username.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
-            username.heightAnchor.constraint(equalToConstant: 40),
-            username.widthAnchor.constraint(equalToConstant: 40)
+            username.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            username.heightAnchor.constraint(equalToConstant: 40)
+            
             
         ])
         

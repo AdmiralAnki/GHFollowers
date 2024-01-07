@@ -8,7 +8,7 @@
 import UIKit
 import CryptoKit
 
-class FollowersViewController: UIViewController {
+class FollowerListViewController: UIViewController {
 
     enum Section{
         case main
@@ -121,7 +121,7 @@ class FollowersViewController: UIViewController {
                         return
                     }
                     
-                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
+                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
@@ -131,7 +131,7 @@ class FollowersViewController: UIViewController {
     }
 }
 
-extension FollowersViewController:UICollectionViewDelegate{
+extension FollowerListViewController:UICollectionViewDelegate{
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
@@ -164,7 +164,7 @@ extension FollowersViewController:UICollectionViewDelegate{
 }
 
 
-extension FollowersViewController:UISearchResultsUpdating,UISearchBarDelegate{
+extension FollowerListViewController:UISearchResultsUpdating,UISearchBarDelegate{
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else  {return}
@@ -180,7 +180,7 @@ extension FollowersViewController:UISearchResultsUpdating,UISearchBarDelegate{
     }
 }
 
-extension FollowersViewController:FollowerViewControllerDelegate{
+extension FollowerListViewController:FollowerViewControllerDelegate{
     func didRequestFollowers(for username: String) {
         // get followers for that user
         self.username = username

@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        title = "Search"
+       
         view.backgroundColor = .darkGray
         
         view.addSubview(imageView)
@@ -67,7 +67,7 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followersVC = FollowersViewController()
+        let followersVC = FollowerListViewController()
         followersVC.username = textField.text!
         followersVC.title = textField.text!
         

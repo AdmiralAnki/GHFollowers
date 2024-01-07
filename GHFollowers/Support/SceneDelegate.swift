@@ -17,10 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         self.window = UIWindow(windowScene: windowScene)
         configureNavBar()
-        self.window?.rootViewController = createSearchNavigationController()
+        self.window?.rootViewController = createTabBarController()
         self.window?.makeKeyAndVisible()
     }
     
+    func createTabBarController()->UITabBarController{
+        var tabBar = UITabBarController()
+        tabBar.viewControllers = [createSearchNavigationController(),createFollwerNavigationController()]
+        tabBar.tabBar.tintColor = .systemGreen
+        
+        return tabBar
+    }
     
     func configureNavBar(){
         UINavigationBar.appearance().tintColor = .systemGreen
@@ -28,8 +35,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createSearchNavigationController()->UINavigationController{
         let viewController = SearchViewController()
+        viewController.title = "Search"
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        
         return UINavigationController(rootViewController: viewController)
     }
+    
+    func createFollwerNavigationController()->UINavigationController{
+        let viewController = FavouriteListViewController()
+        viewController.title = "Favourites"
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites  , tag: 1)
+        return UINavigationController(rootViewController: viewController)
+    }
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
