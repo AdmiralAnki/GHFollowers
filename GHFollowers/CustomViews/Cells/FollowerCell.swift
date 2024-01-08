@@ -25,7 +25,10 @@ class FollowerCell: UICollectionViewCell {
     func set(follower:Follower){
         self.username.text = follower.login
         Task{
-          await self.followerImage.downloadImage(from: follower.avatarUrl)
+            let image = await NetworkManager.downloadImage(from: follower.avatarUrl)
+            DispatchQueue.main.async {
+                self.followerImage.image = image
+            }
         }
     }
     

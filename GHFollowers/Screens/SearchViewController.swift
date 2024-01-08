@@ -41,6 +41,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        textField.text = ""
     }
     
     func addTapGestureRecogniser(){
@@ -67,9 +68,9 @@ class SearchViewController: UIViewController {
             return
         }
         
-        let followersVC = FollowerListViewController()
-        followersVC.username = textField.text!
-        followersVC.title = textField.text!
+        textField.resignFirstResponder()
+        
+        let followersVC = FollowerListViewController(username: textField.text!)        
         
         navigationController?.pushViewController(followersVC, animated: true)
     }
@@ -78,7 +79,7 @@ class SearchViewController: UIViewController {
     func configureImageView(){
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "gh-logo")
+        imageView.image = UIImage(named: Images.logo.rawValue)
         
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 200),

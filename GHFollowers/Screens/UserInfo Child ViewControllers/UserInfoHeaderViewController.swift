@@ -89,7 +89,10 @@ class UserInfoHeaderViewController: UIViewController {
     
     func configureUI(){
         Task{
-            await avatarImageView.downloadImage(from: user.avatarUrl)
+            let image = await NetworkManager.downloadImage(from: user.avatarUrl)
+            DispatchQueue.main.async {
+                self.avatarImageView.image = image
+            }
         }
         
         username.text = user.login

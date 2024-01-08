@@ -15,3 +15,10 @@ enum SFSymbols{
     static let following = "person.2"
     
 }
+
+
+enum Images:String {
+    case logo = "gh-logo"
+    case emptyState = "empty-state-logo"
+    case placeHolder = "gh-placeholder"
+}

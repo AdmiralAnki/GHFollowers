@@ -27,7 +27,10 @@ class FavouriteCell: UITableViewCell {
     func set(favourite:Follower){
         self.username.text = favourite.login
         Task{
-          await self.avatarImageView.downloadImage(from: favourite.avatarUrl)
+            let image = await NetworkManager.downloadImage(from: favourite.avatarUrl)
+            DispatchQueue.main.async {
+                self.avatarImageView.image = image
+            }
         }
     }
     

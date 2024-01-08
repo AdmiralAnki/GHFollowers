@@ -21,11 +21,9 @@ class GFTextField:UITextField{
     }
         
     
-    init(placeHolder:String){
-        super.init(frame: .zero)
-        
+    convenience init(placeHolder:String){
+        self.init(frame: .zero)
         self.placeholder = placeHolder
-        configure()
     }
     
     func configure(){
@@ -44,6 +42,7 @@ class GFTextField:UITextField{
         font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
+        clearButtonMode = .whileEditing
         
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no

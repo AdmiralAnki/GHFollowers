@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B20422872B4AF001003B2CC5 /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20422862B4AF001003B2CC5 /* GFTabBarController.swift */; };
 		B20E14BB2B04A37F00FCD58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E14BA2B04A37F00FCD58C /* AppDelegate.swift */; };
 		B20E14BD2B04A37F00FCD58C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E14BC2B04A37F00FCD58C /* SceneDelegate.swift */; };
 		B20E14BF2B04A37F00FCD58C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E14BE2B04A37F00FCD58C /* SearchViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B20422862B4AF001003B2CC5 /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		B20E14B72B04A37F00FCD58C /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20E14BA2B04A37F00FCD58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B20E14BC2B04A37F00FCD58C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B20422852B4AEFD5003B2CC5 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B20422862B4AF001003B2CC5 /* GFTabBarController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
 		B20E14AE2B04A37F00FCD58C = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		B20E14CE2B04A54F00FCD58C /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B20422852B4AEFD5003B2CC5 /* Tabbar */,
 				B2E316652B43232800C1CA52 /* Lables */,
 				B215AC2C2B32A91C00750919 /* GFTextField.swift */,
 				B215AC2E2B32A92000750919 /* GFButton.swift */,
@@ -364,6 +375,7 @@
 				B232760B2B408B430066FBEE /* Constants.swift in Sources */,
 				B28D87D82B11EDDE007DDE81 /* FollowerCell.swift in Sources */,
 				B22874732B10AEB90025D3B4 /* KeyStore.swift in Sources */,
+				B20422872B4AF001003B2CC5 /* GFTabBarController.swift in Sources */,
 				B228746C2B1085CA0025D3B4 /* Users.swift in Sources */,
 				B2EF607D2B45A68A008ED5E2 /* UserInfoVCDelegate.swift in Sources */,
 				B23276092B4079B80066FBEE /* UserInfoHeaderViewController.swift in Sources */,

@@ -54,11 +54,38 @@ class NetworkManager{
             let jsonDecoder = JSONDecoder()
             
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            jsonDecoder.dateDecodingStrategy = .iso8601
+            
             let decodedUserData = try jsonDecoder.decode(T.self, from: data)
             
             return .success(decodedUserData)
         }catch{
             return .failure(error)
+        }
+        
+    }
+    
+    static func downloadImage(from urlString:String) async -> UIImage?{
+        
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = NetworkManager.cache.object(forKey: cacheKey){
+            return image
+        }
+        
+        guard let url = URL(string: urlString) else {return nil}
+        
+        do{
+            let response = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response.1 as? HTTPURLResponse,
+                  httpResponse.statusCode == 200,
+                  let image = UIImage(data: response.0) else {return nil}
+            
+            NetworkManager.cache.setObject(image, forKey: cacheKey)
+            return image
+                        
+        }catch{
+            return nil
         }
         
     }

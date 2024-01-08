@@ -21,10 +21,9 @@ class GFEmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(message:String){
-        super.init(frame: .zero)
+    convenience init(message:String){
+        self.init(frame: .zero)
         label.text = message
-        configure()
     }
     
     func configure(){
@@ -36,7 +35,7 @@ class GFEmptyStateView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "empty-state-logo")
+        image.image = UIImage(named: Images.emptyState.rawValue)
         
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -140),

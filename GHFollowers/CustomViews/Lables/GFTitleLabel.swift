@@ -19,12 +19,13 @@ class GFTitleLabel: UILabel {
     }
     
     
-    init(textAlignment:NSTextAlignment,fontSize:CGFloat){
-        super.init(frame: .zero)
+    convenience init(textAlignment:NSTextAlignment,fontSize:CGFloat){
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
-        configure()
+        
     }
+    // Convenience inits can be used for defining custom initializers with multiple parameters. It can give default values to some of them, then the init can take only the ones that are needed
     
     private func configure(){
         textColor = .label

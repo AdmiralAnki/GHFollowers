@@ -66,7 +66,7 @@ class UserInfoViewController: UIViewController {
         followerVC.layoutUI()
         followerVC.delegate = self
         
-        self.dateLabel.text = "Github since \(user.createdAt.convertToDisplayFormat())"
+        self.dateLabel.text = "Github since \(user.createdAt.convertToMonthYearFormat())"
     }
     func layoutHeaderView(){
         itemArray = [headerView,itemViewOne,itemViewTwo,dateLabel]
