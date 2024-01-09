@@ -8,7 +8,7 @@
 import UIKit
 import CryptoKit
 
-class FollowerListViewController: UIViewController {
+class FollowerListViewController: GFDataLoadingViewController {
 
     enum Section{
         case main

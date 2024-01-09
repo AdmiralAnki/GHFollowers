@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: GFDataLoadingViewController {
 
     var username = ""
     let headerView = UIView()

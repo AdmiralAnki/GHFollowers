@@ -5,14 +5,14 @@
 //  Created by Ankith on 30/12/23.
 //
 
-import Foundation
+import UIKit
 
 enum SFSymbols{
-    static let loaction = "mappin.and.ellipse"
-    static let repos = "folder"
-    static let gists = "text.alignleft"
-    static let followers = "heart"
-    static let following = "person.2"
+    static let loaction     = UIImage(systemName: "mappin.and.ellipse")
+    static let repos        = UIImage(systemName:"folder")
+    static let gists        = UIImage(systemName:"text.alignleft")
+    static let followers    = UIImage(systemName:"heart")
+    static let following    = UIImage(systemName:"person.2")
     
 }
 

@@ -29,6 +29,7 @@
 		B219367C2B43E24600C455B3 /* GFRepoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219367B2B43E24600C455B3 /* GFRepoItemViewController.swift */; };
 		B219367E2B43E4C100C455B3 /* GFFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B219367D2B43E4C100C455B3 /* GFFollowerItemViewController.swift */; };
 		B2247EEC2B3DDDEA00318B2B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2247EEB2B3DDDEA00318B2B /* Helper.swift */; };
+		B2265AC82B4DA6D400D4B912 /* GFDataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2265AC72B4DA6D400D4B912 /* GFDataLoadingViewController.swift */; };
 		B228746A2B10847F0025D3B4 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22874692B10847F0025D3B4 /* Follower.swift */; };
 		B228746C2B1085CA0025D3B4 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228746B2B1085CA0025D3B4 /* Users.swift */; };
 		B228746E2B10AA080025D3B4 /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228746D2B10AA080025D3B4 /* GitHub.swift */; };
@@ -75,6 +76,7 @@
 		B219367B2B43E24600C455B3 /* GFRepoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemViewController.swift; sourceTree = "<group>"; };
 		B219367D2B43E4C100C455B3 /* GFFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemViewController.swift; sourceTree = "<group>"; };
 		B2247EEB2B3DDDEA00318B2B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		B2265AC72B4DA6D400D4B912 /* GFDataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingViewController.swift; sourceTree = "<group>"; };
 		B22874692B10847F0025D3B4 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		B228746B2B1085CA0025D3B4 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		B228746D2B10AA080025D3B4 /* GitHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 				B20E14C82B04A38100FCD58C /* Info.plist */,
 				B212EDF42B0F647E0082909E /* Network */,
 				B212EDF12B0F63AC0082909E /* Protocols */,
-				B212EDF02B0F62310082909E /* Screens */,
 				B212EDEF2B0F62230082909E /* Extensions */,
 				B212EDEE2B0F62110082909E /* Support */,
 				B20E14CE2B04A54F00FCD58C /* CustomViews */,
@@ -153,6 +154,7 @@
 		B20E14CE2B04A54F00FCD58C /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B212EDF02B0F62310082909E /* ViewControllers */,
 				B20422852B4AEFD5003B2CC5 /* Tabbar */,
 				B2E316652B43232800C1CA52 /* Lables */,
 				B215AC2C2B32A91C00750919 /* GFTextField.swift */,
@@ -187,7 +189,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B212EDF02B0F62310082909E /* Screens */ = {
+		B212EDF02B0F62310082909E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				B219367F2B43E6B900C455B3 /* UserInfo Child ViewControllers */,
@@ -196,8 +198,9 @@
 				B212EDE82B0F2CF00082909E /* GFAlertViewController.swift */,
 				B22962F52B3C797500DBA619 /* UserInfoViewController.swift */,
 				B2AF40102B485E8B00947C90 /* FavouriteListViewController.swift */,
+				B2265AC72B4DA6D400D4B912 /* GFDataLoadingViewController.swift */,
 			);
-			path = Screens;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		B212EDF12B0F63AC0082909E /* Protocols */ = {
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2265AC82B4DA6D400D4B912 /* GFDataLoadingViewController.swift in Sources */,
 				B2EF607F2B45B073008ED5E2 /* FollowerViewControllerDelegate.swift in Sources */,
 				B219367A2B43DDD800C455B3 /* GFInfoItemViewController.swift in Sources */,
 				B215AC2B2B32A91700750919 /* GFTitleLabel.swift in Sources */,

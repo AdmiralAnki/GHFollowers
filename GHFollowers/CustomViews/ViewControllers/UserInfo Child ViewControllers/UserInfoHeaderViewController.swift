@@ -48,7 +48,7 @@ class UserInfoHeaderViewController: UIViewController {
 //        let padding:CGFloat = 20
         let textImagePadding:CGFloat = 12
 
-        locationPin.image = UIImage(systemName: SFSymbols.loaction)
+        locationPin.image = SFSymbols.loaction
         locationPin.tintColor = .secondaryLabel
         
         bio.numberOfLines = 3
