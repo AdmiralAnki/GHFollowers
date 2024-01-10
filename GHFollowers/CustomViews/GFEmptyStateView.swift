@@ -26,28 +26,36 @@ class GFEmptyStateView: UIView {
         label.text = message
     }
     
-    func configure(){
-        addSubview(label)
+    fileprivate func configureImageView() {
         addSubview(image)
-        
-        label.numberOfLines = 3
-        label.textColor = .secondaryLabel
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: Images.emptyState.rawValue)
         
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -140),
-            label.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 40),
-            label.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: -40),
-            label.heightAnchor.constraint(equalToConstant: 200),
-            
             image.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             image.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             image.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 180),
             image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 100)
         ])
+    }
+    
+    fileprivate func configureLabel() {
+        addSubview(label)
+        label.numberOfLines = 3
+        label.textColor = .secondaryLabel
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -140),
+            label.leadingAnchor.constraint(equalTo:self.leadingAnchor, constant: 40),
+            label.trailingAnchor.constraint(equalTo:self.trailingAnchor, constant: -40),
+            label.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    func configure(){
+        configureImageView()
+        configureLabel()
     }
     
 }
