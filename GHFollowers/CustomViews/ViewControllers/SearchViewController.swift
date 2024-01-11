@@ -23,9 +23,7 @@ class SearchViewController: UIViewController {
        
         view.backgroundColor = .darkGray
         
-        view.addSubview(imageView)
-        view.addSubview(button)
-        view.addSubview(textField)
+        view.addSubviews(imageView,button,textField)
         
         textField.delegate = self
         addButtonAction()

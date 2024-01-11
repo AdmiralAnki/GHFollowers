@@ -27,7 +27,7 @@ class GFEmptyStateView: UIView {
     }
     
     fileprivate func configureImageView() {
-        addSubview(image)
+        
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: Images.emptyState.rawValue)
         
@@ -40,7 +40,7 @@ class GFEmptyStateView: UIView {
     }
     
     fileprivate func configureLabel() {
-        addSubview(label)
+       
         label.numberOfLines = 3
         label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +54,7 @@ class GFEmptyStateView: UIView {
     }
     
     func configure(){
+        addSubviews(image,label)
         configureImageView()
         configureLabel()
     }

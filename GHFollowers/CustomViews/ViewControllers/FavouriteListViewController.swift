@@ -89,12 +89,8 @@ extension FavouriteListViewController: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         guard editingStyle == .delete else {return}
-        
         let favourite = favourites[indexPath.row]
-        favourites.remove(at: indexPath.row)
-        
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        
+
         PersistenceManager.updateFavouitesWith(follower: favourite, actionType: .remove) { [weak self] error in
             
             guard let self = self else {
@@ -102,6 +98,8 @@ extension FavouriteListViewController: UITableViewDelegate,UITableViewDataSource
             }
             
             guard let error = error else{
+                self.favourites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
                 return
             }
             

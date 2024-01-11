@@ -37,15 +37,15 @@ class UserInfoHeaderViewController: UIViewController {
     }
 
     func addSubViews(){
+        view.addSubviews(avatarImageView,username,name,locationPin,userLocation,bio)
+        
         let subviews = [avatarImageView,username,name,locationPin,userLocation,bio]
-        for subview in subviews {
-            view.addSubview(subview)
+        for subview in subviews {        
             subview.translatesAutoresizingMaskIntoConstraints = false
         }
     }
     
     func layoutUI(){
-//        let padding:CGFloat = 20
         let textImagePadding:CGFloat = 12
 
         locationPin.image = SFSymbols.loaction
@@ -82,8 +82,7 @@ class UserInfoHeaderViewController: UIViewController {
             bio.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 8),
             bio.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bio.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bio.heightAnchor.constraint(equalToConstant: 80)
-//            bio.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant: -padding)
+            bio.heightAnchor.constraint(equalToConstant: 95)
         ])
     }
     
