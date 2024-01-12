@@ -105,7 +105,6 @@ class NetworkManager{
         urlSession.dataTask(with: request) { data, response, error in
             
             if let error = error{
-//                completed(.failure(error as! GFError))
                 return
             }
             
@@ -130,7 +129,6 @@ class NetworkManager{
                 completed(.success(followers))
                 return
             }catch{
-//                completed(.failure(error))
                 return
             }
             

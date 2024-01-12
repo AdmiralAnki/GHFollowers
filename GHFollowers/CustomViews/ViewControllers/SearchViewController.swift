@@ -17,12 +17,11 @@ class SearchViewController: UIViewController {
     var isUsernameEntered:Bool{
         return !textField.text!.isEmpty
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-       
-        view.backgroundColor = .darkGray
         
+        view.backgroundColor = .darkGray
         view.addSubviews(imageView,button,textField)
         
         textField.delegate = self

@@ -9,9 +9,9 @@ import UIKit
 
 class FollowerCell: UICollectionViewCell {
     
-    static let reuseID = "FollowerCell"
-    let followerImage = GFFollowerImageView(frame: .zero)
-    let username = GFTitleLabel(textAlignment: .center, fontSize: 16)
+    static let reuseID  = "FollowerCell"
+    let followerImage   = GFFollowerImageView(frame: .zero)
+    let username        = GFTitleLabel(textAlignment: .center, fontSize: 16)
         
     override init(frame:CGRect){
         super.init(frame: frame)
@@ -34,15 +34,10 @@ class FollowerCell: UICollectionViewCell {
     
     private func configure(){
         
-       
         addSubviews(followerImage,username)
         
         let padding:CGFloat = 8
-//        
-//        backgroundColor = .cyan
-//        followerImage.backgroundColor = .systemPink
-//        username.backgroundColor = .gray
-//        
+ 
         NSLayoutConstraint.activate([
             followerImage.topAnchor.constraint(equalTo:topAnchor,constant: padding),
             followerImage.leadingAnchor.constraint(equalTo:leadingAnchor,constant: padding),

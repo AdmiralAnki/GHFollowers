@@ -18,7 +18,7 @@ enum SFSymbols{
 
 
 enum Images:String {
-    case logo = "gh-logo"
-    case emptyState = "empty-state-logo"
-    case placeHolder = "gh-placeholder"
+    case logo               = "gh-logo"
+    case emptyState         = "empty-state-logo"
+    case placeHolder        = "gh-placeholder"
 }

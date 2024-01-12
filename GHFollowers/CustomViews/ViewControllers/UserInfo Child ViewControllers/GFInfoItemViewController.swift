@@ -10,11 +10,10 @@ import UIKit
 class GFInfoItemViewController: UIViewController {
 
     
-    let itemInfoViewOne = GFItemInfoView()
-    let itemInfoViewTwo = GFItemInfoView()
-    let actionButton = GFButton()
-    
-    let stackView = UIStackView()
+    let itemInfoViewOne     = GFItemInfoView()
+    let itemInfoViewTwo     = GFItemInfoView()
+    let actionButton        = GFButton()
+    let stackView           = UIStackView()
     
     var user:Users!
     weak var delegate:UserInfoVCDelegate!

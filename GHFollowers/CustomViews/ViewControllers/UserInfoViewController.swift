@@ -9,16 +9,16 @@ import UIKit
 
 class UserInfoViewController: GFDataLoadingViewController {
 
-    var username = ""
-    let headerView = UIView()
+    
+    let headerView  = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
-    let dateLabel = GFBodyLabel(textAlignment: .center)
-    
+    let dateLabel   = GFBodyLabel(textAlignment: .center)
     var itemArray:[UIView] = []
     
     weak var delegate:FollowerViewControllerDelegate!
  
+    var username = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +71,9 @@ class UserInfoViewController: GFDataLoadingViewController {
     func layoutHeaderView(){
         itemArray = [headerView,itemViewOne,itemViewTwo,dateLabel]
        
-        let padding:CGFloat = 20
+        let padding:CGFloat     = 20
         let itemSpacing:CGFloat = 12
-        let itemHeight:CGFloat = 140
+        let itemHeight:CGFloat  = 140
        
         for itemView in itemArray{
             view.addSubview(itemView)

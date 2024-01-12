@@ -9,12 +9,12 @@ import UIKit
 
 class UserInfoHeaderViewController: UIViewController {
 
-    let avatarImageView = GFFollowerImageView(frame: .zero)
-    let username = GFTitleLabel(textAlignment: .left, fontSize: 34)
-    let name = GFSecondaryTitleLabel(fontSize: 18)
-    let locationPin = UIImageView()
-    let userLocation = GFSecondaryTitleLabel(fontSize: 18)
-    let bio = GFBodyLabel(textAlignment: .left)
+    let avatarImageView     = GFFollowerImageView(frame: .zero)
+    let username            = GFTitleLabel(textAlignment: .left, fontSize: 34)
+    let name                = GFSecondaryTitleLabel(fontSize: 18)
+    let locationPin         = UIImageView()
+    let userLocation        = GFSecondaryTitleLabel(fontSize: 18)
+    let bio                 = GFBodyLabel(textAlignment: .left)
     
     var user:Users!
     

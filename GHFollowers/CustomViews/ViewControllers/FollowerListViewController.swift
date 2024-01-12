@@ -14,14 +14,17 @@ class FollowerListViewController: GFDataLoadingViewController {
         case main
     }
     
-    var page = 1
-    var hasMoreFollowers = true
-    var username = ""
-    var followers = [Follower]()
-    var filteredFollowers = [Follower]()
-    var isSearchActive = false
     var collectionView:UICollectionView!
     var datasource:UICollectionViewDiffableDataSource<Section,Follower>!
+    
+    var page                = 1
+    var hasMoreFollowers    = true
+    var username            = ""
+    var isSearchActive      = false
+    
+    var followers           = [Follower]()
+    var filteredFollowers   = [Follower]()
+   
     
     
     init(username:String){

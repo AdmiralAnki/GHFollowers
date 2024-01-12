@@ -9,8 +9,8 @@ import UIKit
 
 class GFFollowerImageView: UIImageView {
 
-    let placeHolderImage = UIImage(named: Images.placeHolder.rawValue)!
-    let cache = NetworkManager.cache
+    let placeHolderImage    = UIImage(named: Images.placeHolder.rawValue)!
+    let cache               = NetworkManager.cache
     
     override init(frame:CGRect){
         super.init(frame: frame)
@@ -22,9 +22,9 @@ class GFFollowerImageView: UIImageView {
     }
     
     private func configure(){
-        layer.cornerRadius = 10
-        clipsToBounds = true
-        image = placeHolderImage
+        layer.cornerRadius  = 10
+        clipsToBounds       = true
+        image               = placeHolderImage
         translatesAutoresizingMaskIntoConstraints = false
     }
     
