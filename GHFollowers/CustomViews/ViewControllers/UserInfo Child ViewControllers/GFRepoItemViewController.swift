@@ -22,7 +22,7 @@ class GFRepoItemViewController: GFInfoItemViewController {
     }
     
     private func configureActionButton(){
-        actionButton.set(backgroundColor: .systemPurple, title: "Github Profile")
+        actionButton.set(backgroundColor: .systemPurple, title: "Github Profile", systemImageName: "person.fill")
     }
     
     override func actionButtonTapped() {

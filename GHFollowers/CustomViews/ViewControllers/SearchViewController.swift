@@ -11,7 +11,7 @@ import CryptoKit
 class SearchViewController: UIViewController {
     
     let imageView = UIImageView()
-    let button = GFButton(color: .systemGreen, title: "Search")
+    let button = GFButton(color: .systemGreen, title: "Search", systemImageName: "magnifyingglass")
     let textField = GFTextField()
     
     var isUsernameEntered:Bool{

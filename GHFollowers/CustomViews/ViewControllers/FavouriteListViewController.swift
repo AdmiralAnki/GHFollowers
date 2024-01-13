@@ -45,7 +45,7 @@ class FavouriteListViewController: GFDataLoadingViewController {
     func getFavourites(){
         
         PersistenceManager.retrieveFavouritesForKey { [weak self] result in
-            guard let self = self else {return}
+            guard let self else {return}
             switch result{
             case .success(let favourites):
                 if favourites.isEmpty{
@@ -93,13 +93,14 @@ extension FavouriteListViewController: UITableViewDelegate,UITableViewDataSource
 
         PersistenceManager.updateFavouitesWith(follower: favourite, actionType: .remove) { [weak self] error in
             
-            guard let self = self else {
+            guard let self else {
                 return
             }
             
-            guard let error = error else{
+            guard let error else{
                 self.favourites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                if self.favourites.isEmpty{  self.showEmptyStateView(message: "You have not favorited anyone!", on: self.view) }
                 return
             }
             

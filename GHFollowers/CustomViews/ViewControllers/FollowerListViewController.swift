@@ -127,7 +127,7 @@ class FollowerListViewController: GFDataLoadingViewController {
             case .success(let user):
                 let follower = Follower(login: user.login, avatarUrl: user.avatarUrl)
                 PersistenceManager.updateFavouitesWith(follower: follower, actionType: .add) { error in
-                    guard let error = error else{
+                    guard let error else{
                         self.presentGFAlertOnMainThread(title: "Added to favourite", message: "You have successfully added this user to favourites 🎉", buttonTitle: "Yay!")
                         return
                     }

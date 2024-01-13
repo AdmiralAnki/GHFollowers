@@ -104,7 +104,7 @@ class NetworkManager{
         
         urlSession.dataTask(with: request) { data, response, error in
             
-            if let error = error{
+            if let error {
                 return
             }
             
@@ -116,7 +116,7 @@ class NetworkManager{
             }
             
             
-            guard let data = data else {
+            guard let data else {
                 completed(.failure(.dataNotReceived))
                 return
             }

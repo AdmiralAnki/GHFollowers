@@ -20,28 +20,44 @@ class GFButton:UIButton{
         super.init(coder: coder)
     }
     
-    convenience init(color:UIColor,title:String){
+    convenience init(color:UIColor,title:String,systemImageName: String){
         self.init(frame: .zero)
-        self.backgroundColor = color
-        self.setTitle(title, for: .normal)
+        set(backgroundColor: color, title: title, systemImageName: systemImageName)
     }
     
     func configure(){
         
-        layer.cornerRadius = 14
-        setTitleColor(.white, for: .normal)
+        configuration = .borderedTinted()
+        configuration?.buttonSize = .medium
+        configuration?.cornerStyle = .medium
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func set(backgroundColor:UIColor,title:String){
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+    func set(backgroundColor:UIColor,title:String,systemImageName:String){
+        configuration?.baseBackgroundColor = backgroundColor
+        configuration?.baseForegroundColor = backgroundColor
+        configuration?.title = title
+        
+        configuration?.image = UIImage(systemName:systemImageName)
+        configuration?.imagePlacement = .leading
+        configuration?.imagePadding = 5
     }
 }
 
 #Preview{
-    let button = GFButton(color: .systemGreen, title: "Click here")
+    let button = GFButton(color: .systemGreen, title: "Click here", systemImageName: "person")
+    
+    NSLayoutConstraint.activate([
+        button.widthAnchor.constraint(equalToConstant: 280),
+        button.heightAnchor.constraint(equalToConstant: 55)
+    ])
+    
+    return button
+}
+
+#Preview{
+    let button = GFButton(color: .systemCyan, title: "Click cyan", systemImageName: "magnifyingglass")
     
     NSLayoutConstraint.activate([
         button.widthAnchor.constraint(equalToConstant: 280),
