@@ -9,7 +9,7 @@ import UIKit
 
 class GFFollowerImageView: UIImageView {
 
-    let placeHolderImage    = UIImage(named: Images.placeHolder.rawValue)!
+    let placeHolderImage    = UIImage(resource: .ghPlaceholder)
     let cache               = NetworkManager.cache
     
     override init(frame:CGRect){

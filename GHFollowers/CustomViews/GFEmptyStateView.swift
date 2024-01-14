@@ -29,7 +29,7 @@ class GFEmptyStateView: UIView {
     fileprivate func configureImageView() {
         
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: Images.emptyState.rawValue)
+        image.image = UIImage(resource: .emptyStateLogo)
         
         NSLayoutConstraint.activate([
             image.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),

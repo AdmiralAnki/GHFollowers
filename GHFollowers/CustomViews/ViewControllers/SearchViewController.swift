@@ -76,7 +76,7 @@ class SearchViewController: UIViewController {
     func configureImageView(){
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: Images.logo.rawValue)
+        imageView.image = UIImage(resource: .ghLogo)
         
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 200),
