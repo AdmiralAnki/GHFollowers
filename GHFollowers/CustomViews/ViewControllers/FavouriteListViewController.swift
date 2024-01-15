@@ -48,19 +48,33 @@ class FavouriteListViewController: GFDataLoadingViewController {
             guard let self else {return}
             switch result{
             case .success(let favourites):
-                if favourites.isEmpty{
-                    self.showEmptyStateView(message: "You have not favorited anyone!", on: self.view)
-                }else{
+                
+                setNeedsUpdateContentUnavailableConfiguration()
+//                if favourites.isEmpty{
+//                    self.showEmptyStateView(message: "You have not favorited anyone!", on: self.view)
+//                }else{
                     self.favourites = favourites
                     DispatchQueue.main.async{
                         self.tableView.reloadData()
                     }
-                }
+//                }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.localizedDescription, buttonTitle: "Ok")
             }
         }
 
+    }
+    
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if favourites.isEmpty{
+            var config = UIContentUnavailableConfiguration.empty()
+            config.text = "No favourites"
+            config.secondaryText = "Add a favourite on the search screen"
+            config.image = .init(systemName: "star")
+            contentUnavailableConfiguration = config
+        }else{
+            contentUnavailableConfiguration = nil
+        }
     }
 }
 
@@ -100,7 +114,8 @@ extension FavouriteListViewController: UITableViewDelegate,UITableViewDataSource
             guard let error else{
                 self.favourites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
-                if self.favourites.isEmpty{  self.showEmptyStateView(message: "You have not favorited anyone!", on: self.view) }
+//                if self.favourites.isEmpty{  self.showEmptyStateView(message: "You have not favorited anyone!", on: self.view) }
+                setNeedsUpdateContentUnavailableConfiguration()
                 return
             }
             
