@@ -83,6 +83,8 @@ class FollowerListViewController: GFDataLoadingViewController {
         datasource.apply(snapShot)
     }
     
+    
+    
     func getFollwers(username:String,page:Int) {
         
         showLoadingView()
@@ -93,17 +95,8 @@ class FollowerListViewController: GFDataLoadingViewController {
             dismissLoadingView()
             switch result{
             case .success(let users):
-                if users.count < 80{ hasMoreFollowers = false }
-                followers.append(contentsOf: users)
+                updateUI(users)
                 
-                if followers.isEmpty {
-                     DispatchQueue.main.async {
-                        self.showEmptyStateView(message: "This user doesn't have any followers, give them a follow 😀", on: self.view)
-                    }
-                    return
-                }
-                
-                updateDataSet(on: followers)
             case .failure(let error):
                 presentGFAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             }
@@ -117,6 +110,12 @@ class FollowerListViewController: GFDataLoadingViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
+    fileprivate func updateUI(_ users: [Follower]) {
+        if users.count < 80{ hasMoreFollowers = false }
+        followers.append(contentsOf: users)
+        updateDataSet(on: followers)
+        setNeedsUpdateContentUnavailableConfiguration()
+    }
     
     @objc func addButtonTapped(){
         Task{
@@ -153,7 +152,6 @@ extension FollowerListViewController:UICollectionViewDelegate{
         let height = scrollView.frame.size.height
         
         if contentOffset > (contentHeight-height){
-            print("reached end load new data")
             page += 1
             getFollwers(username: username, page: page)
         }
@@ -171,6 +169,20 @@ extension FollowerListViewController:UICollectionViewDelegate{
         
     }
     
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if followers.isEmpty && !hasMoreFollowers{
+            var config = UIContentUnavailableConfiguration.empty()
+            config.text = "No followers"
+            config.secondaryText = "This user doesn't have any followers, give them a follow 😀"
+            config.image = .init(systemName: "person.slash.fill")
+            contentUnavailableConfiguration = config
+        }else if isSearchActive && filteredFollowers.isEmpty{
+            contentUnavailableConfiguration = UIContentUnavailableConfiguration.search()
+        }
+        else{
+            contentUnavailableConfiguration = nil
+        }
+    }
  
 }
 
@@ -189,6 +201,7 @@ extension FollowerListViewController:UISearchResultsUpdating{
         isSearchActive = true
         filteredFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
         updateDataSet(on: filteredFollowers)
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }
 
